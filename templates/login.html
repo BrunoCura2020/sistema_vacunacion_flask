@@ -1,0 +1,67 @@
+<!--jinga2: es el motor de plantilla: hacer que el HTML haga otras cosas-->
+{% extends "layout.html" %}
+
+<!--Primero, obtengo los mensajes que recibo del servidor-->
+      <!--Segundo, si existen mensajes que comienze a recorrerlos-->
+      <!--Tercero, y por cada recorrido quiero mostrar el mensaje en un texto-->
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <p>{{message}}</p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>    
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+<!--col-xs: dispositivos moviles(celulares)-->
+<!--col-sm: dispositivos moviles(tabletas)-->
+<!--col-md: dispositivos moviles(tabletas más grandes y en formato horizontal)-->
+<!--col-lg: computadoras de escritorio-->
+
+<!--Container: centra todos los elementos-->
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-6">
+      <form class="contenedor" action="/agregar_usuario" method="POST">
+        <h2>Inicia Sesión</h2>
+
+        <div class="dni">
+          <label for="dni"><b>D.N.I</b></label>
+          <input type="number" name="dni"  placeholder="dni" class="form-control">
+        </div>
+
+        <div class="clave">
+          <label for="clave"><b>Clave</b></label>
+          <input type="password" name=clave placeholder="clave" class="form-control">
+          <!--form-control: así se llama el formato-->
+
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Ingresar</button>
+        <button type="submit" class="btn btn-success btn-block">Registrarse</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <td>DNI</td>
+            <td>Clave</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for usuario in usuarios %}
+            <td>{{usuario.1}}</td>
+            <td>
+              <a href="/editar/{{usuario.0}}">Editar</a>
+              <a href="/eliminar/{{usuario.0}}">Eliminar</a>
+            </td>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">DNI</th>
+        <th scope="col">Domicilio</th>
+        <th scope="col">Fecha_nacimiento</th>
+        <th scope="col">Telefono</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for persona in personas %}
+            <tr>
+                <td>{{persona.1}}</td>
+                <td>{{persona.2}}</td>
+                <td>{{persona.3}}</td>
+                <td>{{persona.4}}</td>
+                <td>{{persona.5}}</td>
+                <td>{{persona.6}}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

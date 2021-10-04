@@ -1,0 +1,46 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url('https://blogs.iadb.org/conocimiento-abierto/wp-content/uploads/sites/10/2020/03/banner-covid19-recursos-conocimiento-abierto.jpg');
+    background-size: cover;
+}
+
+.contenedor{
+    margin-left:auto;
+    margin-right:auto;
+    border: 1px solid;
+    padding: 50px 60px;
+    margin-top: 20vh;
+    -webkit-box-shadow: 0px 0px 28px 13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 28px 13px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 28px 13px rgba(0,0,0,0.75);
+}
+
+h2{
+    text-align: center;
+}
+
+.dni{
+    font-size: 20px;
+}
+
+.clave{
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+button{
+    margin-top: 10px;
+    margin-left: 10%;
+}
+
+table tr:hover{
+    background-color: gray;
+}
+
+td{
+    color: black;
+}
